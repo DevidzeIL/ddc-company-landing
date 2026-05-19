@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
+  background: #1c1c1c;
+  color: #ffffff;
+  line-height: 1.7;
+  font-size: 15px;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+header.page-head {
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+a.back {
+  display: inline-block;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+a.back:hover {
+  color: #fff;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+p {
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+ul, ol {
+  margin: 12px 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+a {
+  color: #7B61FF;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: #9b85ff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+th {
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+td {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+footer.page-foot {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 40px 18px 60px; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; margin-top: 28px; }
+  body { font-size: 14px; }
+}
