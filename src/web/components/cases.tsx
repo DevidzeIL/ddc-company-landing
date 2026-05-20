@@ -98,7 +98,7 @@ export function Cases() {
         <div className="flex justify-center mt-8 md:mt-12">
           <Link
             href="/cases"
-            className="font-mono text-sm text-white border border-white/20 px-8 py-3.5 hover:bg-white/5 transition-colors inline-flex items-center gap-2"
+            className="font-mono text-base md:text-lg font-semibold text-white bg-red-600 hover:bg-red-500 active:bg-red-700 px-10 md:px-14 py-4 md:py-5 transition-colors inline-flex items-center gap-3 shadow-lg shadow-red-900/40"
           >
             больше кейсов
             <span aria-hidden>→</span>
