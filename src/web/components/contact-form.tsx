@@ -56,23 +56,26 @@ export function ContactForm() {
     "w-full bg-[#2a2a2a] border-0 border-b border-white/10 px-4 py-4 font-mono text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors";
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-20 px-6" aria-labelledby="contact-heading">
       <div className="max-w-[600px] mx-auto">
-        <h2 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+        <h2 id="contact-heading" className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           {t.contact.heading}
         </h2>
         <p className="font-mono text-base text-white/60 mb-12">
           {t.contact.subtitle}
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8" noValidate>
           <div>
-            <label className="font-mono text-sm text-white/80 mb-2 block">
-              {t.contact.name} <span className="text-[#FF4444]">*</span>
+            <label htmlFor="contact-name" className="font-mono text-sm text-white/80 mb-2 block">
+              {t.contact.name} <span className="text-[#FF4444]" aria-hidden="true">*</span>
             </label>
             <input
+              id="contact-name"
               type="text"
               required
+              aria-required="true"
+              autoComplete="name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               className={inputClass}
@@ -80,12 +83,15 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-sm text-white/80 mb-2 block">
-              {t.contact.phone} <span className="text-[#FF4444]">*</span>
+            <label htmlFor="contact-phone" className="font-mono text-sm text-white/80 mb-2 block">
+              {t.contact.phone} <span className="text-[#FF4444]" aria-hidden="true">*</span>
             </label>
             <input
+              id="contact-phone"
               type="tel"
               required
+              aria-required="true"
+              autoComplete="tel"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               className={inputClass}
@@ -93,11 +99,13 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-sm text-white/80 mb-2 block">
+            <label htmlFor="contact-email" className="font-mono text-sm text-white/80 mb-2 block">
               {t.contact.email}
             </label>
             <input
-              type="text"
+              id="contact-email"
+              type="email"
+              autoComplete="email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               className={inputClass}
@@ -105,11 +113,13 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="font-mono text-sm text-white/80 mb-2 block">
-              {t.contact.task} <span className="text-[#FF4444]">*</span>
+            <label htmlFor="contact-task" className="font-mono text-sm text-white/80 mb-2 block">
+              {t.contact.task} <span className="text-[#FF4444]" aria-hidden="true">*</span>
             </label>
             <textarea
+              id="contact-task"
               required
+              aria-required="true"
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -117,46 +127,68 @@ export function ContactForm() {
             />
           </div>
 
-          <label className="flex items-start gap-3 cursor-pointer">
-            <span
-              className={`mt-0.5 w-5 h-5 flex-shrink-0 border rounded-sm flex items-center justify-center transition-colors ${
-                form.agreed
-                  ? "bg-[#7B61FF] border-[#7B61FF]"
-                  : "border-white/30 bg-transparent"
-              }`}
-            >
-              {form.agreed && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12l5 5L20 7" />
-                </svg>
-              )}
-            </span>
-            <input
-              type="checkbox"
-              checked={form.agreed}
-              onChange={(e) => setForm({ ...form, agreed: e.target.checked })}
-              className="sr-only"
-            />
-            <span className="font-mono text-xs text-white/60 leading-relaxed">
-              {t.contact.consent1}{" "}
-              <a href="/docs/privacy-policy.html" target="_blank" className="underline text-white/80 hover:text-white">
-                {t.contact.consentPrivacy}
-              </a>{" "}
-              {t.contact.consentAnd}{" "}
-              <a href="/docs/user-agreement.html" target="_blank" className="underline text-white/80 hover:text-white">
-                {t.contact.consentAgreement}
-              </a>
-              {t.contact.consent2}
-            </span>
-          </label>
+          <div>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <span
+                aria-hidden="true"
+                className={`mt-0.5 w-5 h-5 flex-shrink-0 border rounded-sm flex items-center justify-center transition-colors ${
+                  form.agreed
+                    ? "bg-[#7B61FF] border-[#7B61FF]"
+                    : "border-white/30 bg-transparent"
+                }`}
+              >
+                {form.agreed && (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12l5 5L20 7" />
+                  </svg>
+                )}
+              </span>
+              <input
+                id="contact-agree"
+                type="checkbox"
+                checked={form.agreed}
+                onChange={(e) => setForm({ ...form, agreed: e.target.checked })}
+                aria-required="true"
+                className="sr-only"
+              />
+              <span className="font-mono text-xs text-white/60 leading-relaxed">
+                {t.contact.consent1}{" "}
+                <a href="/docs/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="underline text-white/80 hover:text-white">
+                  {t.contact.consentPrivacy}
+                </a>{" "}
+                {t.contact.consentAnd}{" "}
+                <a href="/docs/user-agreement.html" target="_blank" rel="noopener noreferrer" className="underline text-white/80 hover:text-white">
+                  {t.contact.consentAgreement}
+                </a>
+                {t.contact.consent2}
+              </span>
+            </label>
+          </div>
 
           {error && (
-            <p className="font-mono text-sm text-[#FF4444]">{error}</p>
+            <p
+              role="alert"
+              aria-live="assertive"
+              className="font-mono text-sm text-[#FF4444]"
+            >
+              {error}
+            </p>
+          )}
+
+          {submitted && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="font-mono text-sm text-green-400"
+            >
+              {t.contact.sent}
+            </p>
           )}
 
           <button
             type="submit"
             disabled={sending}
+            aria-busy={sending}
             className="w-full bg-[#3BA6FF] hover:bg-[#2196F3] disabled:opacity-50 text-white font-mono text-base py-4 px-8 transition-colors"
           >
             {sending ? t.contact.sending : submitted ? t.contact.sent : t.contact.send}

@@ -4,23 +4,22 @@ export function AIStats() {
   const t = useT();
 
   return (
-    <section className="py-12 md:py-20 px-6">
+    <section className="py-12 md:py-20 px-6" aria-labelledby="ai-stats-heading">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+        <h2 id="ai-stats-heading" className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           {t.aiStats.heading1}
-          <br className="hidden md:block" />
-          <span className="md:hidden"> </span>
+          {" "}
           {t.aiStats.heading2}
         </h2>
         <p className="font-mono text-base md:text-lg text-white/60 mb-12 md:mb-20">
           {t.aiStats.subtitle}
         </p>
 
-        <div className="space-y-10 md:space-y-16">
+        <ol className="space-y-10 md:space-y-16 list-none">
           {t.aiStats.stats.map((s, i) => (
-            <div key={i} className="border-t border-white/10 pt-6 md:pt-8">
+            <li key={i} className="border-t border-white/10 pt-6 md:pt-8">
               <div className="flex items-start gap-4 md:gap-12">
-                <span className="font-mono text-5xl md:text-8xl font-bold text-white/[0.07] leading-none flex-shrink-0 w-[50px] md:w-[120px]">
+                <span className="font-mono text-5xl md:text-8xl font-bold text-white/[0.07] leading-none flex-shrink-0 w-[50px] md:w-[120px]" aria-hidden="true">
                   {i + 1}
                 </span>
 
@@ -51,9 +50,9 @@ export function AIStats() {
                   ))}
                 </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

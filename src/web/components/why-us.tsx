@@ -24,9 +24,9 @@ export function WhyUs() {
   const angleStep = 360 / t.whyUs.services.length;
 
   return (
-    <section className="py-12 md:py-20 px-6">
+    <section className="py-12 md:py-20 px-6" aria-labelledby="why-us-heading">
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+        <h2 id="why-us-heading" className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           {t.whyUs.heading}
         </h2>
         <p className="font-mono text-sm md:text-lg text-white/60 mb-10 md:mb-16">
@@ -34,10 +34,11 @@ export function WhyUs() {
         </p>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-          {/* 3D Drum Carousel */}
+          {/* 3D Drum Carousel — purely visual, hidden from AT */}
           <div
             className="w-full lg:flex-1 flex items-center justify-center overflow-hidden"
             style={{ perspective: "1000px", height: 300 }}
+            aria-hidden="true"
           >
             {/* Mobile */}
             <div
@@ -114,6 +115,13 @@ export function WhyUs() {
             </div>
           </div>
 
+          {/* Screen-reader accessible list of services */}
+          <ul className="sr-only">
+            {t.whyUs.services.map((s, i) => (
+              <li key={i}><strong>{s.title}</strong>: {s.desc}</li>
+            ))}
+          </ul>
+
           {/* About text */}
           <div id="about" className="w-full lg:flex-1 space-y-4 md:space-y-6">
             <p className="font-mono text-sm md:text-lg text-white/80 leading-[1.8]">
@@ -142,20 +150,20 @@ export function WhyUs() {
         </div>
 
         {/* Stats */}
-        <div className="flex flex-wrap justify-center gap-10 md:gap-16 mt-12 md:mt-16">
+        <dl className="flex flex-wrap justify-center gap-10 md:gap-16 mt-12 md:mt-16">
           <div className="text-center">
-            <span className="font-mono text-4xl md:text-6xl font-bold text-white">8+</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.yearsLabel}</p>
+            <dt className="font-mono text-xs md:text-sm text-white/50 mt-2 order-2">{t.whyUs.yearsLabel}</dt>
+            <dd className="font-mono text-4xl md:text-6xl font-bold text-white order-1">8+</dd>
           </div>
           <div className="text-center">
-            <span className="font-mono text-4xl md:text-6xl font-bold text-white">200+</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.projectsLabel}</p>
+            <dt className="font-mono text-xs md:text-sm text-white/50 mt-2 order-2">{t.whyUs.projectsLabel}</dt>
+            <dd className="font-mono text-4xl md:text-6xl font-bold text-white order-1">200+</dd>
           </div>
           <div className="text-center">
-            <span className="font-mono text-4xl md:text-6xl font-bold text-white">62</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.teamLabel}</p>
+            <dt className="font-mono text-xs md:text-sm text-white/50 mt-2 order-2">{t.whyUs.teamLabel}</dt>
+            <dd className="font-mono text-4xl md:text-6xl font-bold text-white order-1">62</dd>
           </div>
-        </div>
+        </dl>
       </div>
     </section>
   );

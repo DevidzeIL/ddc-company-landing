@@ -1,8 +1,9 @@
-import { useMemo, useState, useEffect, useCallback } from "react";
+import { useMemo, useState, useEffect, useCallback, useRef } from "react";
 import { Link } from "wouter";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { CookieBanner } from "../components/cookie-banner";
+import { SkipLink } from "../components/skip-link";
 import casesRu from "../data/cases.json";
 import casesDe from "../data/cases.de.json";
 import { useT, useLocale } from "../i18n/context";
@@ -18,7 +19,6 @@ type CaseItem = {
 const allCasesRu = casesRu as CaseItem[];
 const allCasesDe = casesDe as CaseItem[];
 
-// Карта project_number -> все категории, в которых он встречается
 function buildProjectCategories(cases: CaseItem[]) {
   const map = new Map<string | number, string[]>();
   for (const c of cases) {
@@ -58,7 +58,6 @@ function getCaseGradient(id: number): string {
 
 const EXTS = [".jpg", ".jpeg", ".png", ".webp"];
 
-// Кэш отдельных URL-проверок: src -> загрузилась ли картинка
 const probeCache = new Map<string, boolean>();
 
 function probeImage(src: string): Promise<boolean> {
@@ -71,11 +70,8 @@ function probeImage(src: string): Promise<boolean> {
   });
 }
 
-// Кэш готовых списков картинок по project_number
 const imagesCache = new Map<string, string[]>();
 
-// Ищет все картинки в папке /cases/case-<pn>/:
-// пробует 1.jpg/png, 2.jpg/png, ... пока не встретит пустой номер (макс 20)
 function useProjectImages(pn: string | number | ""): string[] {
   const key = String(pn);
   const [images, setImages] = useState<string[]>(() => imagesCache.get(key) ?? []);
@@ -85,7 +81,6 @@ function useProjectImages(pn: string | number | ""): string[] {
       setImages([]);
       return;
     }
-    // Уже есть в кэше — сразу используем
     if (imagesCache.has(key)) {
       setImages(imagesCache.get(key)!);
       return;
@@ -115,9 +110,7 @@ function useProjectImages(pn: string | number | ""): string[] {
       if (!cancelled) setImages(found);
     })();
 
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, [key]);
 
   return images;
@@ -132,6 +125,7 @@ export default function CasesPage() {
   const [selected, setSelected] = useState<CaseItem | null>(null);
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [query, setQuery] = useState("");
+  const lastActivatorRef = useRef<HTMLElement | null>(null);
 
   const grouped = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -168,10 +162,24 @@ export default function CasesPage() {
     });
   }
 
+  function openModal(item: CaseItem, activator: HTMLElement) {
+    lastActivatorRef.current = activator;
+    setSelected(item);
+  }
+
+  function closeModal() {
+    setSelected(null);
+    // focus restoration happens inside CaseModal on unmount
+  }
+
+  const restoreFocus = useCallback(() => {
+    lastActivatorRef.current?.focus();
+  }, []);
+
   useEffect(() => {
     if (!selected) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelected(null);
+      if (e.key === "Escape") closeModal();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -179,107 +187,131 @@ export default function CasesPage() {
 
   useEffect(() => {
     document.body.style.overflow = selected ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [selected]);
+
+  const pageTitle = locale === "de" ? "Projektfälle" : "Кейсы";
+  const searchLabel = locale === "de" ? "Kunden suchen" : "Поиск по кейсам";
+  const clearLabel = locale === "de" ? "Suche zurücksetzen" : "Очистить поиск";
 
   return (
     <div className="dark-textured-bg min-h-screen text-white">
+      <SkipLink />
       <Header />
 
-      <section className="px-6 pt-6 md:pt-12 pb-10 md:pb-16">
-        <div className="max-w-[1400px] mx-auto">
-          <Link
-            href={homePath}
-            className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-white/50 hover:text-white transition-colors mb-6 md:mb-10"
-          >
-            <span>←</span>
-            <span>{t.casesPage.backHome}</span>
-          </Link>
+      <main id="main-content">
+        <section className="px-6 pt-6 md:pt-12 pb-10 md:pb-16">
+          <div className="max-w-[1400px] mx-auto">
+            <Link
+              href={homePath}
+              className="inline-flex items-center gap-2 font-mono text-xs md:text-sm text-white/50 hover:text-white transition-colors mb-6 md:mb-10"
+            >
+              <span aria-hidden="true">←</span>
+              <span>{t.casesPage.backHome}</span>
+            </Link>
 
-          <h1 className="font-mono text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 md:mb-4">
-            {t.casesPage.title}
-          </h1>
-          <p className="font-mono text-base md:text-xl text-white/60 mb-6 md:mb-8">
-            Cases · {totalVisible} {t.casesPage.countOf} {allCases.length} {t.casesPage.projects}
-          </p>
-
-          {/* Поиск */}
-          <div className="relative max-w-xl">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none select-none font-mono text-sm">
-              ⌕
-            </span>
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t.casesPage.searchPlaceholder}
-              className="w-full bg-white/5 border border-white/10 rounded-sm font-mono text-sm text-white placeholder-white/30 pl-10 pr-10 py-3 focus:outline-none focus:border-white/30 transition-colors"
-            />
-            {query && (
-              <button
-                onClick={() => setQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors font-mono text-base leading-none"
-              >
-                ✕
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:pb-24">
-        <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-14">
-          {grouped.length === 0 && (
-            <p className="font-mono text-white/40 text-sm py-12 text-center">
-              {t.casesPage.noResults} «{query}»
+            <h1 className="font-mono text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 md:mb-4">
+              {pageTitle}
+            </h1>
+            <p className="font-mono text-base md:text-xl text-white/60 mb-6 md:mb-8" aria-live="polite" aria-atomic="true">
+              Cases · {totalVisible} {t.casesPage.countOf} {allCases.length} {t.casesPage.projects}
             </p>
-          )}
-          {grouped.map(([category, items]) => {
-            const isCollapsed = collapsed.has(category);
-            return (
-              <div key={category}>
-                <button
-                  onClick={() => toggleCategory(category)}
-                  className="flex items-center gap-3 mb-5 md:mb-6 w-full group cursor-pointer"
-                >
-                  <span className="inline-flex items-center gap-2 font-mono text-[10px] md:text-xs text-white/70 bg-white/5 border border-white/10 px-3 py-1.5 rounded-sm uppercase tracking-wider group-hover:border-white/25 group-hover:text-white/90 transition-colors">
-                    <span
-                      className="transition-transform duration-200"
-                      style={{
-                        display: "inline-block",
-                        transform: isCollapsed ? "rotate(-90deg)" : "rotate(0deg)",
-                      }}
-                    >
-                      ▾
-                    </span>
-                    {category}
-                  </span>
-                  <span className="font-mono text-xs text-white/30">
-                    {items.length}
-                  </span>
-                  <div className="flex-1 h-px bg-white/10 group-hover:bg-white/20 transition-colors" />
-                </button>
 
-                {!isCollapsed && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-4">
-                    {items.map((c) => (
-                      <CaseCard key={c.id} item={c} onClick={() => setSelected(c)} />
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+            <div className="relative max-w-xl">
+              <label htmlFor="case-search" className="sr-only">{searchLabel}</label>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none select-none font-mono text-sm" aria-hidden="true">
+                ⌕
+              </span>
+              <input
+                id="case-search"
+                type="search"
+                role="searchbox"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={t.casesPage.searchPlaceholder}
+                aria-label={searchLabel}
+                className="w-full bg-white/5 border border-white/10 rounded-sm font-mono text-sm text-white placeholder-white/30 pl-10 pr-10 py-3 focus:outline-none focus:border-white/30 transition-colors"
+              />
+              {query && (
+                <button
+                  onClick={() => setQuery("")}
+                  aria-label={clearLabel}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors font-mono text-base leading-none"
+                >
+                  <span aria-hidden="true">✕</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 pb-16 md:pb-24" aria-label={pageTitle}>
+          <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-14">
+            {grouped.length === 0 && (
+              <p className="font-mono text-white/40 text-sm py-12 text-center" role="status">
+                {t.casesPage.noResults} «{query}»
+              </p>
+            )}
+            {grouped.map(([category, items]) => {
+              const isCollapsed = collapsed.has(category);
+              const panelId = `cat-panel-${category.replace(/\s+/g, "-")}`;
+              const btnId = `cat-btn-${category.replace(/\s+/g, "-")}`;
+              return (
+                <div key={category}>
+                  <button
+                    id={btnId}
+                    onClick={() => toggleCategory(category)}
+                    aria-expanded={!isCollapsed}
+                    aria-controls={panelId}
+                    className="flex items-center gap-3 mb-5 md:mb-6 w-full group cursor-pointer"
+                  >
+                    <span className="inline-flex items-center gap-2 font-mono text-[10px] md:text-xs text-white/70 bg-white/5 border border-white/10 px-3 py-1.5 rounded-sm uppercase tracking-wider group-hover:border-white/25 group-hover:text-white/90 transition-colors">
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-200"
+                        style={{
+                          display: "inline-block",
+                          transform: isCollapsed ? "rotate(-90deg)" : "rotate(0deg)",
+                        }}
+                      >
+                        ▾
+                      </span>
+                      {category}
+                    </span>
+                    <span className="font-mono text-xs text-white/30" aria-hidden="true">
+                      {items.length}
+                    </span>
+                    <div className="flex-1 h-px bg-white/10 group-hover:bg-white/20 transition-colors" aria-hidden="true" />
+                  </button>
+
+                  {!isCollapsed && (
+                    <div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={btnId}
+                      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-4"
+                    >
+                      {items.map((c) => (
+                        <CaseCard
+                          key={c.id}
+                          item={c}
+                          onClick={(e) => openModal(c, e.currentTarget)}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </main>
 
       <Footer />
       <CookieBanner />
 
       {selected && (
-        <CaseModal item={selected} onClose={() => setSelected(null)} />
+        <CaseModal item={selected} onClose={closeModal} restoreFocus={restoreFocus} />
       )}
     </div>
   );
@@ -290,7 +322,7 @@ function CaseCard({
   onClick,
 }: {
   item: CaseItem;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const t = useT();
   const locale = useLocale();
@@ -298,13 +330,16 @@ function CaseCard({
   const gradient = getCaseGradient(item.id);
   const images = useProjectImages(item.project_number);
   const firstImage = images[0] ?? null;
+  const photosBadgeLabel = locale === "de"
+    ? `${images.length} Fotos`
+    : `${images.length} ${t.casesPage.photos}`;
 
   return (
     <button
       onClick={onClick}
+      aria-label={`${item.title}. ${categories.join(", ")}. ${t.casesPage.read}`}
       className="group relative flex flex-col text-left bg-[#222]/70 border border-white/5 rounded-md overflow-hidden hover:bg-[#2a2a2a] hover:border-white/20 transition-colors w-full cursor-pointer"
     >
-      {/* Превью */}
       <div className="w-full h-28 md:h-32 flex-shrink-0 overflow-hidden relative">
         {firstImage ? (
           <img
@@ -313,11 +348,14 @@ function CaseCard({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
-          <div className="w-full h-full" style={{ background: gradient }} />
+          <div className="w-full h-full" style={{ background: gradient }} role="presentation" />
         )}
         {images.length > 1 && (
-          <span className="absolute bottom-1.5 right-1.5 font-mono text-[9px] bg-black/60 text-white/70 px-1.5 py-0.5 rounded-sm">
-            {images.length} {t.casesPage.photos}
+          <span
+            className="absolute bottom-1.5 right-1.5 font-mono text-[9px] bg-black/60 text-white/70 px-1.5 py-0.5 rounded-sm"
+            aria-label={photosBadgeLabel}
+          >
+            <span aria-hidden="true">{images.length} {t.casesPage.photos}</span>
           </span>
         )}
       </div>
@@ -328,7 +366,7 @@ function CaseCard({
         </h3>
 
         <div className="mt-3 flex items-end justify-between gap-2">
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-1" aria-hidden="true">
             {categories.map((cat) => (
               <span
                 key={cat}
@@ -338,7 +376,7 @@ function CaseCard({
               </span>
             ))}
           </div>
-          <span className="font-mono text-[10px] text-white/30 group-hover:text-white/60 transition-colors whitespace-nowrap">
+          <span className="font-mono text-[10px] text-white/30 group-hover:text-white/60 transition-colors whitespace-nowrap" aria-hidden="true">
             {t.casesPage.read}
           </span>
         </div>
@@ -350,9 +388,11 @@ function CaseCard({
 function CaseModal({
   item,
   onClose,
+  restoreFocus,
 }: {
   item: CaseItem;
   onClose: () => void;
+  restoreFocus: () => void;
 }) {
   const t = useT();
   const locale = useLocale();
@@ -360,9 +400,43 @@ function CaseModal({
   const gradient = getCaseGradient(item.id);
   const images = useProjectImages(item.project_number);
   const [idx, setIdx] = useState(0);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const titleId = `modal-title-${item.id}`;
 
-  // сбрасывать индекс при смене кейса
   useEffect(() => { setIdx(0); }, [item.id]);
+
+  // Focus the close button when modal opens; restore focus on unmount
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+    return () => { restoreFocus(); };
+  }, [restoreFocus]);
+
+  // Focus trap
+  useEffect(() => {
+    const modal = modalRef.current;
+    if (!modal) return;
+    const focusableSelectors =
+      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusable = Array.from(
+        modal.querySelectorAll<HTMLElement>(focusableSelectors)
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+
+    modal.addEventListener("keydown", handleTab);
+    return () => modal.removeEventListener("keydown", handleTab);
+  }, []);
 
   const prev = useCallback(
     (e: React.MouseEvent) => {
@@ -381,47 +455,61 @@ function CaseModal({
   );
 
   const hasImages = images.length > 0;
+  const prevLabel = locale === "de" ? "Vorheriges Bild" : "Предыдущее фото";
+  const nextLabel = locale === "de" ? "Nächstes Bild" : "Следующее фото";
+  const photoLabel = (i: number) => locale === "de"
+    ? `Bild ${i + 1} von ${images.length} anzeigen`
+    : `Показать фото ${i + 1} из ${images.length}`;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
+      role="presentation"
     >
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" />
 
       <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
         className="relative z-10 w-full max-w-3xl bg-[#1e1e1e] border border-white/10 rounded-md shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Превью / карусель */}
+        {/* Image / carousel */}
         <div className="w-full h-64 md:h-96 relative overflow-hidden bg-black/30">
           {hasImages ? (
             <>
               <img
                 key={images[idx]}
                 src={images[idx]}
-                alt={`${item.title} — ${t.casesPage.photo} ${idx + 1}`}
+                alt={`${item.title} — ${t.casesPage.photo} ${idx + 1} / ${images.length}`}
                 className="w-full h-full object-contain"
               />
               {images.length > 1 && (
                 <>
                   <button
                     onClick={prev}
+                    aria-label={prevLabel}
                     className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors text-sm"
                   >
-                    ‹
+                    <span aria-hidden="true">‹</span>
                   </button>
                   <button
                     onClick={next}
+                    aria-label={nextLabel}
                     className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors text-sm"
                   >
-                    ›
+                    <span aria-hidden="true">›</span>
                   </button>
-                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5" role="group" aria-label={locale === "de" ? "Bildnavigation" : "Навигация по фото"}>
                     {images.map((_, i) => (
                       <button
                         key={i}
                         onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+                        aria-label={photoLabel(i)}
+                        aria-pressed={i === idx}
                         className={`w-1.5 h-1.5 rounded-full transition-colors ${
                           i === idx ? "bg-white" : "bg-white/30 hover:bg-white/60"
                         }`}
@@ -432,7 +520,7 @@ function CaseModal({
               )}
             </>
           ) : (
-            <div className="w-full h-full" style={{ background: gradient }} />
+            <div className="w-full h-full" style={{ background: gradient }} role="presentation" />
           )}
         </div>
 
@@ -449,13 +537,16 @@ function CaseModal({
               ))}
             </div>
             {item.project_number !== "" && (
-              <span className="font-mono text-[10px] text-white/30 whitespace-nowrap">
+              <span className="font-mono text-[10px] text-white/30 whitespace-nowrap" aria-label={`${locale === "de" ? "Projektnummer" : "Номер проекта"} ${item.project_number}`}>
                 #{item.project_number}
               </span>
             )}
           </div>
 
-          <h2 className="font-mono text-base md:text-xl font-bold text-white leading-snug mb-5">
+          <h2
+            id={titleId}
+            className="font-mono text-base md:text-xl font-bold text-white leading-snug mb-5"
+          >
             {item.title}
           </h2>
 
@@ -470,6 +561,7 @@ function CaseModal({
           )}
 
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             className="mt-8 font-mono text-xs text-white/50 border border-white/10 px-4 py-2.5 hover:bg-white/5 hover:text-white transition-colors"
           >

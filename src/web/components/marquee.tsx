@@ -21,6 +21,8 @@ export function Marquee() {
     <div
       className="w-full bg-[#7B61FF] overflow-hidden relative flex items-center"
       style={{ height: 36 }}
+      aria-hidden="true"
+      role="presentation"
     >
       <div
         ref={contentRef}
