@@ -1,0 +1,681 @@
+[
+  {
+    "id": 1,
+    "category": "Sprachlösungen",
+    "project_number": 23,
+    "title": "Sprachbot für psychologische Nutzerunterstützung",
+    "description": "Entwickelt wurde ein Sprach-Chatbot in Python, der die Sprache des Nutzers erkennt, den emotionalen Zustand analysiert und psychologische Unterstützung bietet. Das System verwendet verzweigte Dialoge für strukturierte Gespräche, hilft bei persönlichen Problemen und beim Erreichen von Zielen. Der Bot kann den Stresslevel diagnostizieren und wirksame Methoden zur Stressreduktion vorschlagen."
+  },
+  {
+    "id": 2,
+    "category": "Sprachlösungen",
+    "project_number": 24,
+    "title": "Sprachbot für Produkt- und Dienstleistungsverkauf",
+    "description": "Der Sprachbot führt Anrufe bei Kunden durch und stellt anhand einer vorgegebenen Vorlage gezielte Fragen nach der SPIN-Verkaufsmethodik, um den Gesprächspartner schrittweise zum Abschluss zu führen. Das Programm basiert auf einem LLM-Modell zur Fragengenerierung und Sprachsynthesetechnologie."
+  },
+  {
+    "id": 3,
+    "category": "Sprachlösungen",
+    "project_number": 31,
+    "title": "Waffle — intelligenter Dienst zur Verarbeitung von Audioinhalten",
+    "description": "Semantische Modelle für das Start-up Waffle, das auf automatische Transkription von Podcasts und Audiomaterialien spezialisiert ist. Das System wandelt Sprache präzise in Text um, identifiziert verschiedene Sprecher in Mehrfachaufnahmen und hebt Werbebotschaften hervor. Die integrierte Analyse liefert Werbetreibenden detaillierte Berichte über Produkterwähnungen, Länge der Werbsegmente und den Kontext der Erwähnungen."
+  },
+  {
+    "id": 4,
+    "category": "Sprachlösungen",
+    "project_number": 33,
+    "title": "KI-Sprach­assistent für medizinische Dokumentation",
+    "description": "Entwickelt wurde ein spezialisierter medizinischer GPT-Assistent, der Sprachnotizen des Arztes während der Patientenaufnahme in Echtzeit verarbeitet. Das System erkennt präzise medizinische Fachterminologie, strukturiert die Informationen automatisch und trägt die Daten direkt in die elektronische Patientenakte ein. Dies ermöglicht Ärzten, sich auf den Patienten zu konzentrieren, minimiert den Dokumentationsaufwand und reduziert Eingabefehler."
+  },
+  {
+    "id": 5,
+    "category": "Sprachlösungen",
+    "project_number": 71,
+    "title": "KI-Sprach­assistent für automatische Kundenanrufe",
+    "description": "KI-Assistent für automatische Kundenanrufe zur Terminbestätigung, Feedbackerhebung und Erinnerungen, in 3 Wochen von der Idee bis zum MVP entwickelt. Die Technologie steigerte die Kundenbindung um 60% und wurde erfolgreich an 4 Kundenprojekte mit unterschiedlichen Kommunikationsszenarien und CRM-Integrationen angepasst."
+  },
+  {
+    "id": 6,
+    "category": "Sprachlösungen",
+    "project_number": 72,
+    "title": "Sprachbot 'Wanga' für KI-basierte Vorhersagen",
+    "description": "Interaktiver Sprach-Chatbot, der den Stil und die Art einer bekannten Prophetin imitiert. Das System nutzt Spracherkennungstechnologien zur Verarbeitung von Nutzeranfragen, analysiert diese mit fortschrittlichen LLM-Modellen und generiert personalisierte Vorhersagen. Die Antworten werden mit stilisierten Sprachmerkmalen zurückgewandelt, die die mystische Atmosphäre verstärken."
+  },
+  {
+    "id": 7,
+    "category": "Sprachlösungen",
+    "project_number": 73,
+    "title": "Sprachbot zur Patientenanmeldung im Krankenhaus",
+    "description": "Entwicklung eines Sprach-Chatbots für die automatische Terminvereinbarung in medizinischen Einrichtungen. Der Bot nimmt Anrufe entgegen, erfasst Patientendaten, schlägt verfügbare Terminslots vor und bucht den Termin."
+  },
+  {
+    "id": 8,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 4,
+    "title": "Automatisches Abfallsortiersystem",
+    "description": "System zur Klassifizierung von Abfall in Kategorien (Kunststoff, Metall, organisch u. a.) zur Erleichterung des Recyclings. Das Prinzip basiert auf Sensoren und Computer-Vision-Technologie, die den Materialtyp erkennt und den Abfall in den entsprechenden Behälter leitet."
+  },
+  {
+    "id": 9,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 7,
+    "title": "Quadrocopter mit 3D-Raumkartierungsfunktion",
+    "description": "Mit Scantechnik ausgerüsteter Quadrocopter zur Erstellung einer dreidimensionalen Raumkarte. Verwendet Sensoren (LiDAR und Stereokamera), die eine autonome Navigation im Raum und die Erstellung eines volumetrischen Raummodells ermöglichen."
+  },
+  {
+    "id": 10,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 8,
+    "title": "Quadrocopter zur Überwachung landwirtschaftlicher Felder",
+    "description": "Unbemannter Quadrocopter für die automatische Überwachung landwirtschaftlicher Felder. Ausgestattet mit Kamera (Video/Wärmebild) und autonomem Navigationssystem, der ein definiertes Gebiet entlang vormarkierter Punkte abfliegt und den Operator bei Vorfällen (Eindringlinge/Tiere, Brand) alarmiert."
+  },
+  {
+    "id": 11,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 10,
+    "title": "Perimeterschutzsystem mit Wärmebildkamera",
+    "description": "Perimeterschutzsystem mit Wärmebildkamera und integriertem Computer-Vision-System zur Rund-um-die-Uhr-Erkennung von Eindringlingen anhand von Wärmestrahlung. Die Wärmebildkamera überwacht kontinuierlich die Temperaturkarte entlang der Grenze: Beim Auftauchen von Personen oder Fahrzeugen wird ein Alarm ausgelöst."
+  },
+  {
+    "id": 12,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 36,
+    "title": "Eishockeyspieler-Tracking-System für Sportanalytik",
+    "description": "System zur Verfolgung von Eishockeyspielerbewegungen in der Eishalle 'Morozovo'. Die Technologie verwendet Videokameras und fortschrittliche Computer-Vision-Algorithmen für präzises Echtzeit-Tracking jedes Spielers. Das System identifiziert Spieler automatisch anhand ihrer Nummern und erfasst Geschwindigkeit, Bewegungsbahnen, Laufstrecke und weitere Kennzahlen."
+  },
+  {
+    "id": 13,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 49,
+    "title": "RetailControl — Videoanalytik-System zur Diebstahlprävention",
+    "description": "Intelligentes System 'RetailControl' zur automatischen Überwachung von Einzelhandel und Lagerhaltung zur Erkennung von Diebstählen. Die Lösung nutzt Computer-Vision zur Echtzeitanalyse von Videoüberwachungsströmen. ML-Algorithmen erkennen verdächtiges Verhalten von Personal und Kunden und senden sofortige Benachrichtigungen an den Sicherheitsdienst."
+  },
+  {
+    "id": 14,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 51,
+    "title": "AI Fitness — KI-gestützte App für persönliches Training",
+    "description": "Mobile App, die Videoanalytik zur Kontrolle der korrekten Ausführung von Übungen einsetzt. Mithilfe der Kamera und Computer-Vision-Algorithmen erkennt sie Nutzerbewegungen, bewertet die Technik und gibt Feedback sowie Wiederholungszählung."
+  },
+  {
+    "id": 15,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 75,
+    "title": "Neuronales Netz zur Erkennung von Menschenmassen-Bewegungsrichtungen",
+    "description": "Entwicklung eines Computer-Vision-Systems auf Basis neuronaler Netze zur Analyse von Bewegungsrichtungen in Videostreams. Das Modell basiert auf CNN und kann in Echtzeit Bewegungsbahnen von Menschenmassen erkennen, Abweichungen identifizieren und potenzielle Ansammlungen vorhersagen. Einsatz bei Großveranstaltungen und Verkehrsknotenpunkten."
+  },
+  {
+    "id": 16,
+    "category": "Fintech-Lösungen",
+    "project_number": 1,
+    "title": "Finance App — App zur persönlichen Finanzverwaltung",
+    "description": "Mobile App, die Nutzern ermöglicht, Einnahmen, Ausgaben zu verfolgen und ein Budget zu planen. Finance App bietet eine Oberfläche zur Transaktionseingabe, Kategorisierung, Analyse von Finanzberichten und Ausgabenprognose. Nutzer können monatliche Limits setzen und Benachrichtigungen bei Budgetüberschreitung erhalten."
+  },
+  {
+    "id": 17,
+    "category": "Fintech-Lösungen",
+    "project_number": 16,
+    "title": "Optimierung der Comarch-Datenverarbeitung für Finanzanalyse",
+    "description": "Entworfen und implementiert wurde eine Datenschicht, die Rohdaten aus dem Comarch-System in ein für Finanzanalysen geeignetes Format umwandelt. Aufgebaut wurden Microservices auf Basis von PostgreSQL und Redis sowie ein Webinterface für Berichte im XLS-Format."
+  },
+  {
+    "id": 18,
+    "category": "Fintech-Lösungen",
+    "project_number": 30,
+    "title": "Dr.Report — Finanzplattform zur Konsolidierung und Automatisierung der Berichterstattung",
+    "description": "Lösung zur Automatisierung der Konsolidierung von Finanzdaten aus regionalen Niederlassungen. Erstellt wurden Integrationstools mit ERP-Systemen (1C, Sage) in Echtzeit und ein Datenmapping-Algorithmus zwischen Rechnungslegungsstandards (RSBU, IFRS, GAAP). Implementiert wurde eine übersichtliche Oberfläche für das Top-Management."
+  },
+  {
+    "id": 19,
+    "category": "Fintech-Lösungen",
+    "project_number": 39,
+    "title": "Sage — Optimierung von Finanzdaten",
+    "description": "Entwickelt wurde eine Datenschicht zur Verarbeitung von SAGE-Systemdaten. Aufgebaut wurden Microservices für kontinuierliche Datensynchronisierung, ein Cloud-Cache-Speicher und ein Webinterface für schnelle Finanzberichte ohne schwere SAGE-Oberfläche."
+  },
+  {
+    "id": 20,
+    "category": "Fintech-Lösungen",
+    "project_number": 41,
+    "title": "Datenschicht für 1C-Finanzanalyse",
+    "description": "Aufgebaut wurde ein System zur Umwandlung von 1C-Rohdaten in ein für Finanzanalyse und Berichterstattung geeignetes Format. Implementiert wurden Microservices zur Datenänderungsüberwachung und ein Cache-Speicher mit leichter Weboberfläche."
+  },
+  {
+    "id": 21,
+    "category": "Fintech-Lösungen",
+    "project_number": 42,
+    "title": "Beschleunigung der Arbeit mit Finanzdaten in QuickBooks",
+    "description": "Erstellt wurde ein System zur automatischen Verarbeitung von QuickBooks-Buchhaltungsdaten mit Cloud-Caching und schneller Berichterstellung. Entwickelt wurde eine übersichtliche Weboberfläche mit Such-, Filter- und Exportfunktionen."
+  },
+  {
+    "id": 22,
+    "category": "Fintech-Lösungen",
+    "project_number": 43,
+    "title": "Datenschicht für Lotus-Domino-Analyse",
+    "description": "Entwickelt wurde ein System zur Verarbeitung von Lotus-Domino-Daten für Finanzanalysen. Aufgebaut wurden Microservices und ein Cloud-Speicher für schnellen Datenzugriff ohne schwere Lotus-Domino-Clients."
+  },
+  {
+    "id": 23,
+    "category": "Blockchain-Technologien",
+    "project_number": 18,
+    "title": "Ton Guys — zentralisierter Rechencluster für TON-Mining",
+    "description": "Entwicklung eines eigenen TON-Kryptowährungs-Mining-Pools 'Ton Guys'. Implementiert wurde ein Python-Server (FastAPI, SQLAlchemy, Redis, Aiogram) zur Benutzer- und Aufgabenverwaltung sowie ein Client-Teil in FunC und C++. Das Projekt wurde offiziell von der TON Foundation geprüft und genehmigt."
+  },
+  {
+    "id": 24,
+    "category": "Blockchain-Technologien",
+    "project_number": 19,
+    "title": "Blockchain-Scanner",
+    "description": "Entwicklung eines Scanners für Ethereum-ähnliche Blockchains (Ethereum, Binance Smart Chain, Polygon), der Smart-Contract-Events verfolgt und an den RabbitMQ-Message-Broker sendet. Erstellt wurde außerdem eine eigene REST API für Contract-Informationen."
+  },
+  {
+    "id": 25,
+    "category": "Blockchain-Technologien",
+    "project_number": 20,
+    "title": "Stablecoin — Entwicklung digitaler Assets",
+    "description": "Entwicklung und Deployment von Contracts für einen digitalen Dollar und Gold-/Edelmetall-Äquivalente auf der Binance Smart Chain und Ethereum. Smart Contracts in Solidity zur Token-Ausgabe und -Regulierung wurden für Hedgefonds-Investments erstellt."
+  },
+  {
+    "id": 26,
+    "category": "Blockchain-Technologien",
+    "project_number": 53,
+    "title": "Liquidity — Kryptowährungs-Kreditplattform auf Basis von Smart Contracts",
+    "description": "Dezentralisierte Plattform Liquidity für Kryptowährungsdarlehen. Das System basiert auf Smart Contracts, die den Kredit-, Sicherheiten- und Zinsprozess automatisch regeln. Das Herzstück ist ein Algorithmus zur dynamischen Zinssatzberechnung, der die aktuelle Marktliquidität analysiert und Darlehensbedingungen in Echtzeit anpasst."
+  },
+  {
+    "id": 27,
+    "category": "Blockchain-Technologien",
+    "project_number": 54,
+    "title": "Krypto-Portfolio-Managementsystem",
+    "description": "Plattform zur Erstellung und Verwaltung von Hedgefonds auf Blockchain-Basis, die sowohl professionellen Managern als auch Privatanlegern ermöglicht, eigene Fonds zu gründen, Kapital zu sammeln und durch Smart Contracts Transparenz zu gewährleisten."
+  },
+  {
+    "id": 28,
+    "category": "Blockchain-Technologien",
+    "project_number": 56,
+    "title": "Widepiper — Blockchain-Spiel zur Kryptowährungskursprognose",
+    "description": "Kryptospiel, bei dem Nutzer auf Kursentwicklungen verschiedener Kryptowährungen wetten. Alle Prognosen und Einsätze werden im CyberSwap-Blockchain-System sicher aufgezeichnet, was vollständige Transparenz gewährleistet. Der Spielausgang wird automatisch anhand der tatsächlichen Kursänderung bestimmt."
+  },
+  {
+    "id": 29,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 5,
+    "title": "Zugangskontrollsystem für Gefahrenzonen in der Produktion",
+    "description": "System, das den Zutritt zu bestimmten Zonen auf Basis der Identitätsprüfung erlaubt oder verweigert. Basiert auf elektronischen Schlössern und Lesern (Karten- und biometrische Sensoren), die nur autorisierten Personen Zutritt gewähren."
+  },
+  {
+    "id": 30,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 8,
+    "title": "Quadrocopter zur Überwachung landwirtschaftlicher Felder",
+    "description": "Unbemannter Quadrocopter für die automatische Überwachung landwirtschaftlicher Felder. Ausgestattet mit Kamera (Video/Wärmebild) und autonomem Navigationssystem, der ein definiertes Gebiet entlang vormarkierter Punkte abfliegt und den Operator bei Vorfällen alarmiert."
+  },
+  {
+    "id": 31,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 9,
+    "title": "Intelligente Schranken",
+    "description": "Intelligente Schranken — automatisches, elektronisch gesteuertes System zur Zufahrtskontrolle für Fahrzeuge auf gesichertem Gelände. Das Gerät ist mit einer Kennzeichenerkennungskamera ausgestattet sowie einem speziell entwickelten Parkautomaten mit Geldschein-, Karten- und Münzeinzug."
+  },
+  {
+    "id": 32,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 10,
+    "title": "Perimeterschutzsystem mit Wärmebildkamera",
+    "description": "Perimeterschutzsystem mit Wärmebildkamera und integriertem Computer-Vision-System zur Rund-um-die-Uhr-Eindringlingserkennung anhand von Wärmestrahlung."
+  },
+  {
+    "id": 33,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 13,
+    "title": "Daten-Parser für Kamera an der Autobahn M4 Don",
+    "description": "System zur Verarbeitung von Videoströmen von Straßenkameras zur Kennzeichenerkennung und Geschwindigkeitsmessung für die Überwachung der Autobahn M4 Don."
+  },
+  {
+    "id": 34,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": 49,
+    "title": "RetailControl — Videoanalytik-System zur Diebstahlprävention",
+    "description": "Intelligentes System zur automatischen Überwachung von Einzelhandel und Lagerhaltung zur Erkennung von Diebstählen mit Echtzeit-Videoanalyse und Sicherheitsbenachrichtigungen."
+  },
+  {
+    "id": 35,
+    "category": "Intelligente Sicherheitssysteme",
+    "project_number": "",
+    "title": "Fabriken",
+    "description": ""
+  },
+  {
+    "id": 36,
+    "category": "Daten-Scraping",
+    "project_number": 28,
+    "title": "Daylist Parser — Tool zur Extraktion und Umwandlung von Tabellendaten",
+    "description": "Das Programm automatisiert die Verarbeitung großer Informationsmengen, ermöglicht schnelles Filtern, Analysieren und Integrieren von Daten in andere Systeme. Unterstützt CSV- und Excel-Formate und hilft, Daten in strukturierter Form bereitzustellen."
+  },
+  {
+    "id": 37,
+    "category": "Daten-Scraping",
+    "project_number": 34,
+    "title": "Quoten-Parser für Wettanbieter",
+    "description": "Automatisiertes System zur Datenerfassung von Wettanbietern. Der Parser extrahiert Quoteninformationen von verschiedenen Plattformen, strukturiert die Daten und speichert sie für weitergehende Analysen."
+  },
+  {
+    "id": 38,
+    "category": "Daten-Scraping",
+    "project_number": 35,
+    "title": "System zur Konsolidierung von Nutzerverkehrsdaten",
+    "description": "Lösung für Online-Plattformen zur Erfassung und Zentralisierung von Daten aus allen Traffic-Quellen und Nutzerbindungsmetriken. Das System integriert Informationen aus verschiedenen Akquisekanälen, analysiert Verhaltensmustern und identifiziert Abwanderungspunkte."
+  },
+  {
+    "id": 39,
+    "category": "Daten-Scraping",
+    "project_number": 58,
+    "title": "Facebook Parser — automatisches Datenerfassungssystem für Autoauktionen",
+    "description": "Spezialisierter Parser für die automatische Erfassung von Autoauktions-Inseraten auf dem Facebook Marketplace. Das System scannt regelmäßig das soziale Netzwerk, identifiziert relevante Auktionsanzeigen und extrahiert strukturiert Schlüsseldaten: Modell, Baujahr, Laufleistung, Zustand, Startpreis und Auktionsende."
+  },
+  {
+    "id": 40,
+    "category": "Daten-Scraping",
+    "project_number": 59,
+    "title": "Bot zum Parsen von RZhD-Bahntickets",
+    "description": "Der Bot überwacht das Erscheinen neuer Bahntickets nach vorgegebenen Einstellungen (Richtung, Wagentyp, Platzverfügbarkeit) durch Scraping der RZhD-Website und benachrichtigt den Nutzer per Telegram-Bot, damit er ein Ticket kaufen kann, bevor es ausverkauft ist."
+  },
+  {
+    "id": 41,
+    "category": "Daten-Scraping",
+    "project_number": 60,
+    "title": "Amazon Scrapper — Amazon-Daten-Scraping-System",
+    "description": "System zur Erfassung und Analyse von Produktangeboten auf Amazon für Preisanalytik und die Suche nach günstigen Angeboten."
+  },
+  {
+    "id": 42,
+    "category": "Daten-Scraping",
+    "project_number": 77,
+    "title": "Service zum Parsen von Sportereignis-Statistiken",
+    "description": "Dienst, der automatisch Sportwetten-Informationen aus privaten Telegram-Kanälen sammelt und analysiert. Das System extrahiert Prognosen, Einsätze und Ergebnisse, erstellt aggregierte Statistiken nach Autoren, Disziplinen und Wetttypen sowie Transparenz-Rankings der Tipster mit ROI und Win-Rate."
+  },
+  {
+    "id": 43,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 1,
+    "title": "Finance App — App zur persönlichen Finanzverwaltung",
+    "description": "Mobile App zur Verfolgung von Einnahmen, Ausgaben und Budgetplanung mit Transaktionseingabe, Kategorisierung, Finanzberichtsanalyse und Ausgabenprognose."
+  },
+  {
+    "id": 44,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 2,
+    "title": "Info Keeper — App zur Aufgaben- und Informationsverwaltung",
+    "description": "App zur sicheren Speicherung und Organisation persönlicher Informationen einschließlich Passwörter, Notizen und wichtige Dokumente. Info Keeper verwendet Datenverschlüsselung und bietet schnellen Zugriff auf Einträge von verschiedenen Geräten."
+  },
+  {
+    "id": 45,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 3,
+    "title": "Weather App — Wettervorhersage-App",
+    "description": "Weather App liefert genaue Wettervorhersagen auf Basis weltweiter meteorologischer Stationen. Zeigt aktuelle Bedingungen, mehrtägige Prognosen und Unwetterwarnungen sowie detaillierte Karten mit Temperatur, Luftfeuchtigkeit und anderen Werten."
+  },
+  {
+    "id": 46,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 14,
+    "title": "Innovationen für Kinder — Portal einer innovativen Bildungsplattform",
+    "description": "Multifunktionale Unternehmenswebsite für 'Innovationen für Kinder', einen führenden russischen Hersteller von interaktiven Geräten und Software für Bildungseinrichtungen, mit modernem Design, intuitiver Navigation und umfassender Produktpräsentation."
+  },
+  {
+    "id": 47,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 26,
+    "title": "Browser-Extension zur Aufgabenverwaltung für Menschen mit ADHS",
+    "description": "Entwicklung eines Systems zur Verwaltung von Aufgaben und Ereignissen über Integrationen (Google Calendar, GMail, Telegram, Slack, Airtable, Indeed, LinkedIn) mithilfe eines KI-gestützten Gesprächsdienstes. Zielt auf die Produktivitätssteigerung von Menschen mit Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS)."
+  },
+  {
+    "id": 48,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 27,
+    "title": "Physics — Physik-Nachschlagewerk mit Formeln",
+    "description": "Mobile App mit einer Sammlung physikalischer Formeln und Referenzinformationen für Studenten und Fachleute. Nutzer können Formeln nach Themen suchen, Erklärungen lesen und Aufgaben mit integrierten Taschenrechnern lösen."
+  },
+  {
+    "id": 49,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 29,
+    "title": "Daylist — App zur Aufgabenplanung und -organisation",
+    "description": "Auf Studenten ausgerichtete App zur Eingabe von Stundenplänen, Aufgabenverfolgung und Erinnerungen an Abgabefristen, mit schneller Bearbeitungs- und Optimierungsfunktion."
+  },
+  {
+    "id": 50,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 32,
+    "title": "App-Marktplatz für das russische Betriebssystem ROSA",
+    "description": "Entwickelt wurde ein vollständiger App-Marktplatz für mobile Geräte mit dem russischen Betriebssystem ROSA. Die Plattform bietet eine übersichtliche Oberfläche zum Suchen, Herunterladen und Installieren von Apps sowie ein Bewertungs- und Kommentarsystem."
+  },
+  {
+    "id": 51,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 47,
+    "title": "StartupGrow — Plattform für Start-up-Entwicklung",
+    "description": "MiniApp im Telegram-Ökosystem als vollständige Start-up-Akzelerationsplattform mit Modulen für Geschäftsprozessplanung, Ideenanalyse, Pitch-Deck-Builder und Fortschrittstracking."
+  },
+  {
+    "id": 52,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 51,
+    "title": "AI Fitness — KI-gestützte App für persönliches Training",
+    "description": "Mobile App mit Videoanalytik zur Kontrolle der korrekten Übungsausführung. Erkennt Nutzerbewegungen per Kamera, bewertet Technik und gibt Feedback sowie Wiederholungszählung."
+  },
+  {
+    "id": 53,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 52,
+    "title": "Beathoven — Bibliothek für Musik-Samples",
+    "description": "Russische Plattform Beathoven zum Suchen und Herunterladen von Musik-Samples, angepasst an die Bedürfnisse des heimischen Marktes. Bietet eine umfangreiche Bibliothek hochwertiger Soundfragmente verschiedener Genres."
+  },
+  {
+    "id": 54,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 62,
+    "title": "User Repository — Bibliothek für Nutzerautorisierung",
+    "description": "Bibliothek zur Verwaltung von Authentifizierungs- und Autorisierungsprozessen in Apps. Unterstützt verschiedene Registrierungs- und Anmeldemethoden einschließlich sozialer Netzwerke und E-Mail mit zuverlässiger Datenverschlüsselung."
+  },
+  {
+    "id": 55,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 64,
+    "title": "Backend-Entwicklung für Info Keeper mit Django",
+    "description": "Projekt zur Erstellung des Info-Keeper-App-Backends mit Django für sichere Datenspeicherung und Zugriffsverwaltung, API für mobile App-Interaktion und Integration externer Dienste mit modernen Verschlüsselungsprotokollen."
+  },
+  {
+    "id": 56,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 67,
+    "title": "Nashstore — russischer mobiler App-Marktplatz",
+    "description": "App-Store für Android — NashStore, als sanctions-resistente Alternative zu Google Play für russische Nutzer. Bietet übersichtlichen Katalog, intelligente Suche, redaktionelle Sammlungen und über 40 Sicherheitsprüfungen je App sowie Unterstützung russischer Bankkarten."
+  },
+  {
+    "id": 57,
+    "category": "Mobile- & Web-Anwendungen",
+    "project_number": 68,
+    "title": "Mama&Co — mobile App für Mütter",
+    "description": "App mit Chats, Tabellen zur Informationsverfolgung und Hilfsfunktionen. Das Projekt umfasste die vollständige mobile Entwicklung: Chat-Implementierung, übersichtliche Tabellen, Push-Benachrichtigungen und Nutzerdatenverwaltung mit Fokus auf Einfachheit und Sicherheit."
+  },
+  {
+    "id": 58,
+    "category": "Robotik",
+    "project_number": 4,
+    "title": "Automatisches Abfallsortiersystem",
+    "description": "System zur Klassifizierung von Abfall in Kategorien (Kunststoff, Metall, organisch) zur Erleichterung des Recyclings mittels Sensoren und Computer-Vision-Technologie."
+  },
+  {
+    "id": 59,
+    "category": "Robotik",
+    "project_number": 6,
+    "title": "Mobiler Reinigungs- und Lieferroboter",
+    "description": "Autonomer mobiler Roboter für die Reinigung von Einkaufszentren und den Transport kleiner Lasten. Ausgestattet mit Navigationssensoren und Routenplanungssystem für autonome Navigation, Hindernisumgehung und Reinigungsaufgaben."
+  },
+  {
+    "id": 60,
+    "category": "Robotik",
+    "project_number": 7,
+    "title": "Quadrocopter mit 3D-Raumkartierungsfunktion",
+    "description": "Mit Scantechnik ausgerüsteter Quadrocopter zur Erstellung eines dreidimensionalen Raummodells mittels LiDAR und Stereokamera."
+  },
+  {
+    "id": 61,
+    "category": "Robotik",
+    "project_number": 8,
+    "title": "Quadrocopter zur Überwachung landwirtschaftlicher Felder",
+    "description": "Unbemannter Quadrocopter für die automatische Feldüberwachung mit Kamera und autonomem Navigationssystem."
+  },
+  {
+    "id": 62,
+    "category": "Robotik",
+    "project_number": 11,
+    "title": "Entwicklung einer CNC-Maschine mit Laser-/Fräsmodul",
+    "description": "Multifunktionale CNC-Maschine, die auf einer Plattform Lasermodul und Fräswerkzeug vereint. Ermöglicht sowohl Laserschneiden/-gravieren als auch klassisches Fräsen mit computergesteuerter Hochpräzisionsbearbeitung."
+  },
+  {
+    "id": 63,
+    "category": "Robotik",
+    "project_number": 12,
+    "title": "Anthropomorpher Manipulator mit Bewegungsnachahmung",
+    "description": "Anthropomorpher Robotermanipulator, der Menschenhandbewegungen in Echtzeit nachahmt. Das System liest Operatorbewegungen (z. B. über einen Sensorhandschuh) und reproduziert sie synchron am Roboter für Fernbedienung oder Training."
+  },
+  {
+    "id": 64,
+    "category": "Robotik",
+    "project_number": 44,
+    "title": "Selbstlernprojekt für Drohnen in AirSim — Quadrocopter-Training in Simulation",
+    "description": "Projekt zur Schaffung einer Simulationsumgebung für das Training von Quadrocoptern zur Hindernisumgehung. Entwickelt wurde ein virtuelles Trainingsmodell auf Basis von Unreal Engine und Python für risikofreies Navigations-Training."
+  },
+  {
+    "id": 65,
+    "category": "Robotik",
+    "project_number": 57,
+    "title": "ROS-Projektdeployment mit Docker",
+    "description": "Automatisierung und Deployment der Projektinfrastruktur auf ROS Melodic in Docker-Containern zur Vereinfachung von Tests und Skalierung."
+  },
+  {
+    "id": 66,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 15,
+    "title": "System zur Digitalisierung, Kategorisierung und Zusammenfassung von Papierdokumenten",
+    "description": "System zur Digitalisierung von 90% der Papierdokumente eines großen europäischen Versicherungskonzerns. Mit OCR, NLP und maßgeschneiderten CNN/RNN-Modellen wurde ein gemeinsames Polizzen-Repository erstellt, die Dokumentenweiterleitung automatisiert und automatische Kurzzusammenfassungen generiert."
+  },
+  {
+    "id": 67,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 17,
+    "title": "Optimierung der Logistik chemischer Produkte in den USA",
+    "description": "Entwickelt wurde ein mathematisches Modell zur Optimierung der Chemikalienlogistik über das US-Territorium mit dynamischer Programmierung und Graphen. Das Projekt berücksichtigt drei Transportarten (LKW, Binnenschiffe, Eisenbahn) und minimiert Transportkosten. Routenvisualisierung via Google Maps."
+  },
+  {
+    "id": 68,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 22,
+    "title": "Automatisierung von Bankprozessen mit OCR und NLP",
+    "description": "Umfassende Modernisierung der Dokumentenverarbeitung in einer Bank. Implementierung von OCR- und NLP-Funktionen für automatischen Dokumentenimport, Schlüsselwort-Klassifizierung und Datenbankindexierung. Das Projekt automatisierte über 250 Geschäftsprozesse."
+  },
+  {
+    "id": 69,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 37,
+    "title": "Elektronisches Patienteninformationssystem in medizinischen Einrichtungen",
+    "description": "Entwickelt wurde ein System zur Programmierung elektronischer Anzeigetafeln für medizinische Einrichtungen, das in Echtzeit Informationen über Patientenstatus und Warteschlangen anzeigt. Integration mit dem Krankenhausinformationssystem und automatische Aktualisierung von Patientenstatus, Zimmernummer und erwarteter Wartezeit."
+  },
+  {
+    "id": 70,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 38,
+    "title": "System automatisierter Schließfächer mit elektronischen Schlössern",
+    "description": "Entwickelt und implementiert wurde ein System automatisierter Schließfächer für Ausgabestellen mit ferngesteuerten elektronischen Schlössern. Nutzer greifen per mobiler App kontaktlos auf Fächer zu, verfolgen den Lieferstatus und erhalten Benachrichtigungen. Das System unterstützt flexible Nutzungsszenarien einschließlich temporären Kurier-Zugriffs."
+  },
+  {
+    "id": 71,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 46,
+    "title": "KI-gestütztes Identitätsprüfungssystem (KYC)",
+    "description": "Automatisierung von Kundenkennzeichnungsprozessen mit KI. Das System analysiert Dokumente, Fotos und Nutzerverhalten, prüft deren Echtheit und beschleunigt den Verifizierungsprozess in Finanz- und anderen Diensten."
+  },
+  {
+    "id": 72,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 55,
+    "title": "Analyseplattform für Marktplatz-Verkäufer",
+    "description": "Entwickelt wurde ein analytisches System AWO mpstats, funktional ähnlich dem Wildberries-Admin-Panel, aber mit erweiterten Möglichkeiten für Verkäufer. Die Plattform sammelt und verarbeitet automatisch Verkaufsdaten auf Marktplätzen und liefert detaillierte Statistiken zu Verkaufsvolumen, Konversion, Produktrankings und Wettbewerberpreisen."
+  },
+  {
+    "id": 73,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 69,
+    "title": "Auto Actions — Automatisierung der Kontoerstellung",
+    "description": "Projekt zur Automatisierung der Erstellung von 100.000 Bot-Konten für verschiedene Dienste. Auto Actions ermöglicht die automatische Kontogenerierung, was Zeit und Aufwand bei der Massenregistrierung reduziert und für App-Tests nützlich ist."
+  },
+  {
+    "id": 74,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 70,
+    "title": "SAPI — Tool zum Parsen von Swagger und automatischer Code-Generierung",
+    "description": "SAPI-Tool für effizientes Parsen von Swagger-API-Dokumentation und automatische Code-Generierung in verschiedenen Programmiersprachen. Das System analysiert Swagger-Spezifikationen, extrahiert Endpoint-Beschreibungen, Anfrageparameter, Datentypen und Antworten und generiert fertigen API-Client- oder Servercode."
+  },
+  {
+    "id": 75,
+    "category": "Geschäftsprozessautomatisierung",
+    "project_number": 78,
+    "title": "CRM-Integrationsmodul für Rechtsorganisationen",
+    "description": "Plugin zur Automatisierung der Registrierung und Bearbeitung von Kundenanfragen, Strukturierung rechtlicher Aufgaben nach Phasen, Datensynchronisierung mit Dokumentenverwaltung und Benachrichtigungen. Zielt auf Kostensenkung und verbesserten Zugang zu Rechtsberatung für KMU und Privatpersonen."
+  },
+  {
+    "id": 76,
+    "category": "Content-Generierung",
+    "project_number": 25,
+    "title": "App zum intelligenten Gesichtsaustausch in Fotos und Videos",
+    "description": "Anwendung zur automatischen Gesichtssubstitution in Bildern und Videos. Basiert auf einem feinabgestimmten DeepFake-Netz für realistische Gesichtsübertragung unter Beibehaltung von Mimik, Beleuchtung und anderen visuellen Aspekten mit intuitiver Benutzeroberfläche."
+  },
+  {
+    "id": 77,
+    "category": "Content-Generierung",
+    "project_number": 50,
+    "title": "Tool zum Entfernen von Logos aus Bildern und Videos",
+    "description": "KI-Tool zur automatischen Entfernung von Logos und Wasserzeichen aus Multimedia-Dateien ohne Qualitätsverlust."
+  },
+  {
+    "id": 78,
+    "category": "Content-Generierung",
+    "project_number": 61,
+    "title": "Bot für automatisches Posten in sozialen Netzwerken",
+    "description": "Universeller Bot für automatisches Content-Publishing auf Telegram, Instagram und VK. Ermöglicht die Vorbereitung von Posts mit Text, Bildern und Videos sowie flexible Veröffentlichungszeitplanung mit Inhaltsanalyse."
+  },
+  {
+    "id": 79,
+    "category": "Content-Generierung",
+    "project_number": 74,
+    "title": "Telegram-Bot für virtuelle Kleider-Anprobe",
+    "description": "Dienst für virtuelle Kleider-Anprobe auf Basis von KI-Technologien. Nutzer laden Fotos zur Avatar-Erstellung hoch und wählen Kleidungsstücke für die virtuelle Anprobe. Das System passt die ausgewählten Kleidungsstücke intelligent an die Körperproportionen des Nutzers an."
+  },
+  {
+    "id": 80,
+    "category": "Content-Generierung",
+    "project_number": 76,
+    "title": "Aggregator für KI-Netze: GPT, Sora, MJ",
+    "description": "Aggregator-Plattform, die populäre generative KI-Netze (Text, Video, Bild) mit einem einzigen Zugangspunkt verbindet. Nutzer können Modelle je nach Aufgabe auswählen, Parameter anpassen, Ergebnisse vergleichen und Prozesse automatisieren. Das Projekt umfasst API-Priorisierung, Abrechnung und Abo-Szenarien."
+  },
+  {
+    "id": 81,
+    "category": "KI-Bots",
+    "project_number": 21,
+    "title": "Qiwi Donation App — Spendensystem über soziale Netzwerke",
+    "description": "Entwicklung einer Spenden-App für soziale Netzwerke (ähnlich 'BuyMeACoffee') mit VK-Plattform-Integration und Qiwi-Partnerschaft. Ermöglicht Nutzern native Spenden direkt über die App."
+  },
+  {
+    "id": 82,
+    "category": "KI-Bots",
+    "project_number": 45,
+    "title": "System zur Aggregation von Sportdaten für Wetten",
+    "description": "Entwicklung eines Telegram-Bots und einer Plattform zur Aggregation von Sportereignisdaten und Generierung von Wettstrategien auf Basis von Zeitreihenanalysen. Die Plattform erzielte ein positives Gesamtergebnis (+888.190 RUB gegenüber -542.000 RUB Verlust) und übertraf 99% der Konkurrenz."
+  },
+  {
+    "id": 83,
+    "category": "KI-Bots",
+    "project_number": 47,
+    "title": "StartupGrow — Plattform für Start-up-Entwicklung",
+    "description": "MiniApp im Telegram-Ökosystem als vollständige Start-up-Akzelerationsplattform mit Modulen für Geschäftsprozessplanung, Ideenanalyse, Pitch-Deck-Builder und Fortschrittstracking."
+  },
+  {
+    "id": 84,
+    "category": "KI-Bots",
+    "project_number": 48,
+    "title": "Telegram-Ernährungsberatungs-Bot mit personalisierten Ernährungsplänen",
+    "description": "Telegram-Bot als persönlicher Ernährungsberater. Das System sammelt Nutzerinformationen per interaktivem Fragebogen (Gewicht, Größe, Alter, körperliche Aktivität, Erkrankungen, Ernährungsvorlieben) und analysiert den Gesundheitszustand des Kunden, um einen personalisierten Ernährungsplan zu erstellen."
+  },
+  {
+    "id": 85,
+    "category": "KI-Bots",
+    "project_number": 61,
+    "title": "Bot für automatisches Posten in sozialen Netzwerken",
+    "description": "Universeller Bot für automatisches Content-Publishing auf Telegram, Instagram und VK mit flexibler Zeitplanung und Inhaltsanalyse."
+  },
+  {
+    "id": 86,
+    "category": "KI-Bots",
+    "project_number": 72,
+    "title": "Sprachbot 'Wanga' für KI-basierte Vorhersagen",
+    "description": "Interaktiver Sprach-Chatbot, der den Stil einer bekannten Prophetin imitiert, mit Spracherkennungs- und LLM-Technologien für personalisierte Vorhersagen."
+  },
+  {
+    "id": 87,
+    "category": "KI-Bots",
+    "project_number": 74,
+    "title": "Telegram-Bot für virtuelle Kleider-Anprobe",
+    "description": "KI-gestützter Dienst für virtuelle Kleider-Anprobe mit Avatar-Erstellung und intelligenter Anpassung an Körperproportionen."
+  },
+  {
+    "id": 88,
+    "category": "KI-Bots",
+    "project_number": 76,
+    "title": "Aggregator für KI-Netze: GPT, Sora, MJ",
+    "description": "Aggregator-Plattform für generative KI-Netze (Text, Video, Bild) mit einheitlichem Zugangspunkt, Parameteranpassung und Ergebnisvergleich."
+  },
+  {
+    "id": 89,
+    "category": "MedTech-Lösungen",
+    "project_number": 33,
+    "title": "KI-Sprach­assistent für medizinische Dokumentation",
+    "description": "Entwickelt wurde ein spezialisierter medizinischer GPT-Assistent zur Echtzeit-Verarbeitung von Arzt-Sprachnotizen. Das System erkennt medizinische Fachterminologie, strukturiert Informationen automatisch und trägt Daten direkt in die elektronische Patientenakte ein."
+  },
+  {
+    "id": 90,
+    "category": "MedTech-Lösungen",
+    "project_number": 37,
+    "title": "Elektronisches Patienteninformationssystem in medizinischen Einrichtungen",
+    "description": "System zur Programmierung elektronischer Anzeigetafeln für medizinische Einrichtungen mit Echtzeit-Anzeige von Patientenstatus und Warteschlangen. Integration mit dem Krankenhausinformationssystem und automatische Datenaktualisierung."
+  },
+  {
+    "id": 91,
+    "category": "MedTech-Lösungen",
+    "project_number": 48,
+    "title": "Telegram-Ernährungsberatungs-Bot mit personalisierten Ernährungsplänen",
+    "description": "Telegram-Bot als persönlicher Ernährungsberater mit interaktivem Fragebogen zur Datenerhebung und Generierung personalisierter Ernährungspläne."
+  },
+  {
+    "id": 92,
+    "category": "MedTech-Lösungen",
+    "project_number": 73,
+    "title": "Sprachbot zur Patientenanmeldung im Krankenhaus",
+    "description": "Sprach-Chatbot für automatische Terminvereinbarung in medizinischen Einrichtungen: nimmt Anrufe entgegen, erfasst Patientendaten, schlägt Slots vor und bucht Termine."
+  },
+  {
+    "id": 93,
+    "category": "Weitere Projekte",
+    "project_number": "",
+    "title": "WEKEY — Website des größten Sicherheitstechnik-Händlers in Russland",
+    "description": "Das Website-Redesign-Projekt umfasst UX-Verbesserungen, schnelle Navigation, Serverarbeit unter verschiedenen Lasten, Erstellung zusätzlicher Seiten und Entwicklung der Untersysteme aller Hauptseiten. Im Rahmen der Bitrix-basierten WEKEY-Website wurden über 15 neue Hierarchiebranches installiert, jede mit einem neuen Modul."
+  },
+  {
+    "id": 94,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 77,
+    "title": "CraneX — Überwachungssystem für Baustellen",
+    "description": "Videoüberwachungssystem für Baustellen über an Baukränen montierte Kameras. Bietet einen Überblick über die Baustelle von oben und ermöglicht schnelle Reaktion auf Probleme. Erkennt automatisch Kranbetrieb und -stillstände, Aktivität auf der Baustelle sowie Risiken und Vorfälle. Manager erhalten Telegram-Benachrichtigungen zu Schlüsselereignissen. Funktionen: Echtzeit-Bauzustandsüberwachung, Aufzeichnung gefährlicher Situationen mit Video, Ereignishistorie pro Objekt, Schichtberichte. Demo: http://81.31.245.206:8060/. Status: Prototyp, Oberfläche fertig, Videoanalytik in Entwicklung."
+  },
+  {
+    "id": 95,
+    "category": "Computer-Vision-Systeme",
+    "project_number": 78,
+    "title": "PZW — Überwachung des Produktionsgeländes",
+    "description": "KI-basiertes Videoüberwachungssystem für Produktionszonen. Ähnlich wie CraneX: Videostream-Erfassung von installierten Kameras, automatische Analyse von Aktivität und Geländezustand, Metrikerfassung und Benachrichtigung der Verantwortlichen. Unterstützt rollenbasierten Zugriff für Betreiber, Manager und Administratoren. Ereignishistorie, Metriken-Dashboard und Berichtsgenerierung."
+  },
+  {
+    "id": 96,
+    "category": "Sprachlösungen",
+    "project_number": 79,
+    "title": "AI Caller — Plattform zur Automatisierung von Sprachanrufen",
+    "description": "Plattform zur Erstellung und Verwaltung von KI-Anrufen mit flexibler Szenariokonfiguration. Der Nutzer wählt den Anrufmodus (Datenbankanruf, eingehend, gemischt), erstellt ein Skript für den Sprachbot, startet die Kampagne und verfolgt Ergebnisse in Echtzeit. Das System führt den Dialog automatisch nach dem vorgegebenen Szenario, erkennt Antworten des Angerufenen und passt das Gespräch an. Nach dem Anruf stehen Analysen zur Verfügung: Konversion, Anrufdauer, Skriptantworten, Ergebnistrichter. CRM-Integration und Benachrichtigungen zu Schlüsselereignissen."
+  },
+  {
+    "id": 97,
+    "category": "Sprachlösungen",
+    "project_number": 80,
+    "title": "LectureAI — intelligente Transkription und Aufbereitung von Vorlesungen",
+    "description": "Dienst zur automatischen Verarbeitung von Vorlesungsaufnahmen zu fertigen Lernmaterialien. Das System transkribiert Sprache und bereinigt den Text intelligent: entfernt Wiederholungen, Füllwörter, Versprecher und Geräusche, die für lebendige Dozierendensprache typisch sind. Der bereinigte Text wird in den gewünschten Stil umgewandelt — sachlich, akademisch, klassisch oder individuell angepasst. Anschließend werden zu den Kernthesen der Vorlesung Illustrationen, Schemata und visuelle Darstellungen generiert. Am Ende erhält der Nutzer ein strukturiertes PDF-Dokument mit Text und Abbildungen, das ein tieferes Eintauchen in den Stoff ermöglicht und als vollständiges Lernheft dient."
+  }
+]

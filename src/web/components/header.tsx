@@ -1,20 +1,24 @@
 import { useState } from "react";
+import { useT, useLocale } from "../i18n/context";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const t = useT();
+  const locale = useLocale();
+  const base = locale === "de" ? "/de" : "";
 
   return (
     <header className="relative z-50">
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/">
+        <a href={base || "/"}>
           <img src="/logo-ddc.avif" alt="DDC" className="h-[22px] object-contain" />
         </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 font-mono text-sm">
-          <a href="#case" className="text-white/80 hover:text-white transition-colors">Кейсы</a>
-          <a href="#about" className="text-white/80 hover:text-white transition-colors">О нас</a>
-          <a href="#contact" className="text-white/80 hover:text-white transition-colors">Контакты</a>
+          <a href={`${base}/#case`} className="text-white/80 hover:text-white transition-colors">{t.nav.cases}</a>
+          <a href={`${base}/#about`} className="text-white/80 hover:text-white transition-colors">{t.nav.about}</a>
+          <a href={`${base}/#contact`} className="text-white/80 hover:text-white transition-colors">{t.nav.contacts}</a>
         </nav>
 
         {/* Mobile burger */}
@@ -38,9 +42,9 @@ export function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-[#1a1a1a] border-t border-white/10 px-6 py-4 font-mono text-sm">
-          <a href="#case" className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>Кейсы</a>
-          <a href="#about" className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>О нас</a>
-          <a href="#contact" className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>Контакты</a>
+          <a href={`${base}/#case`} className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>{t.nav.cases}</a>
+          <a href={`${base}/#about`} className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+          <a href={`${base}/#contact`} className="block py-2 text-white/80 hover:text-white" onClick={() => setMenuOpen(false)}>{t.nav.contacts}</a>
         </div>
       )}
     </header>

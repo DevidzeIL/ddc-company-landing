@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useT } from "../i18n/context";
 
 export function Marquee() {
   const [contentWidth, setContentWidth] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
+  const t = useT();
 
-  const text = "ПРОЕКТЫ КОМПАНИИ";
   const logoSrc = "/logo-ddc.avif";
   const gap = 40;
 
@@ -38,7 +39,7 @@ export function Marquee() {
               style={{ height: "1.1em", width: "auto" }}
             />
             <span className="font-mono text-sm font-bold text-white uppercase tracking-wider">
-              {text}
+              {t.marquee.text}
             </span>
           </div>
         ))}

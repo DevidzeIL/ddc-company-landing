@@ -1,21 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-
-const services = [
-  { title: "Мобильные и веб-приложения", desc: "Разработка сервисов и экосистем." },
-  { title: "Автоматизация бизнес-процессов", desc: "Цифровизация и оптимизация задач." },
-  { title: "Системы компьютерного зрения", desc: "Видеоаналитика и распознавание." },
-  { title: "Робототехника", desc: "ПО для дронов и автономных систем." },
-  { title: "ИИ Боты", desc: "Умные ассистенты и чат-боты." },
-  { title: "Голосовые решения", desc: "Распознавание и синтез речи." },
-  { title: "Финтех решения", desc: "Финансовая аналитика и управление." },
-  { title: "Парсинг данных", desc: "Автоматический сбор данных." },
-  { title: "Блокчейн технологии", desc: "Смарт-контракты и децентрализация." },
-  { title: "Умные системы безопасности", desc: "Интеллектуальный контроль доступа." },
-  { title: "Генерация контента", desc: "Нейросети для создания контента." },
-  { title: "Медтех решения", desc: "Цифровые сервисы для медицины." },
-];
+import { useT } from "../i18n/context";
 
 export function WhyUs() {
+  const t = useT();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [rotation, setRotation] = useState(0);
   const rotationRef = useRef<number | null>(null);
@@ -34,16 +21,16 @@ export function WhyUs() {
 
   const radius = 170;
   const mobileRadius = 120;
-  const angleStep = 360 / services.length;
+  const angleStep = 360 / t.whyUs.services.length;
 
   return (
     <section className="py-12 md:py-20 px-6">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-          ПОЧЕМУ ВЫБИРАЮТ НАС?
+          {t.whyUs.heading}
         </h2>
         <p className="font-mono text-sm md:text-lg text-white/60 mb-10 md:mb-16">
-          Опыт с более чем 20 отраслями, от стартапов до промышленных предприятий
+          {t.whyUs.subtitle}
         </p>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
@@ -52,7 +39,7 @@ export function WhyUs() {
             className="w-full lg:flex-1 flex items-center justify-center overflow-hidden"
             style={{ perspective: "1000px", height: 300 }}
           >
-            {/* Mobile: smaller radius */}
+            {/* Mobile */}
             <div
               className="relative w-[65%] md:w-[55%] lg:w-[60%] max-w-[300px] block md:hidden"
               style={{
@@ -61,7 +48,7 @@ export function WhyUs() {
                 transform: `rotateX(${rotation}deg)`,
               }}
             >
-              {services.map((s, i) => {
+              {t.whyUs.services.map((s, i) => {
                 const angle = i * angleStep;
                 const normalizedAngle = (((angle + rotation) % 360) + 360) % 360;
                 const isBackSide = normalizedAngle > 90 && normalizedAngle < 270;
@@ -86,7 +73,7 @@ export function WhyUs() {
                 );
               })}
             </div>
-            {/* Desktop: larger radius */}
+            {/* Desktop */}
             <div
               className="relative w-[55%] lg:w-[60%] max-w-[300px] hidden md:block"
               style={{
@@ -95,7 +82,7 @@ export function WhyUs() {
                 transform: `rotateX(${rotation}deg)`,
               }}
             >
-              {services.map((s, i) => {
+              {t.whyUs.services.map((s, i) => {
                 const angle = i * angleStep;
                 const normalizedAngle = (((angle + rotation) % 360) + 360) % 360;
                 const isBackSide = normalizedAngle > 90 && normalizedAngle < 270;
@@ -130,25 +117,26 @@ export function WhyUs() {
           {/* About text */}
           <div id="about" className="w-full lg:flex-1 space-y-4 md:space-y-6">
             <p className="font-mono text-sm md:text-lg text-white/80 leading-[1.8]">
-              DDC — российская IT-компания,{" "}
-              <span className="text-[#FF4444]">работаем с 2017 года</span>.
-              Команда — 62 человека.
+              {t.whyUs.about1}{" "}
+              <span className="text-[#FF4444]">{t.whyUs.about1accent}</span>
+              {t.whyUs.about1end}
             </p>
             <p className="font-mono text-sm md:text-lg text-white/80 leading-[1.8]">
-              За это время прошли путь от небольшой студии до подрядчика крупного банка, агрохолдинга
-              и фармкорпорации, наши решения работают на нескольких российских заводах.
+              {t.whyUs.about2}
             </p>
             <p className="font-mono text-sm md:text-lg text-white/80 leading-[1.8]">
-              Компанию <em>основал</em> Генрих Шнайдер — магистр робототехники,{" "}
-              <span className="text-[#FF4444]">бывший преподаватель МГУ</span>{" "}
-              и исследователь в лаборатории компьютерного зрения РАН.
+              {t.whyUs.about3start}{" "}
+              <em>{t.whyUs.about3em}</em>{" "}
+              {t.whyUs.about3mid}{" "}
+              <span className="text-[#FF4444]">{t.whyUs.about3accent}</span>{" "}
+              {t.whyUs.about3end}
             </p>
             <p className="font-mono text-sm md:text-lg text-white/80 leading-[1.8]">
-              Наш подход:{" "}
-              <span className="text-[#FF4444]">сначала разобраться</span>{" "}
-              в задаче, а{" "}
-              <span className="text-[#FF4444]">потом писать код</span>.
-              Ведём проекты от анализа до внедрения и продолжаем поддерживать и развивать продукт вместе с клиентом.
+              {t.whyUs.about4start}{" "}
+              <span className="text-[#FF4444]">{t.whyUs.about4accent1}</span>{" "}
+              {t.whyUs.about4mid}{" "}
+              <span className="text-[#FF4444]">{t.whyUs.about4accent2}</span>
+              {t.whyUs.about4end}
             </p>
           </div>
         </div>
@@ -157,15 +145,15 @@ export function WhyUs() {
         <div className="flex flex-wrap justify-center gap-10 md:gap-16 mt-12 md:mt-16">
           <div className="text-center">
             <span className="font-mono text-4xl md:text-6xl font-bold text-white">8+</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">лет опыта</p>
+            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.yearsLabel}</p>
           </div>
           <div className="text-center">
             <span className="font-mono text-4xl md:text-6xl font-bold text-white">200+</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">проектов</p>
+            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.projectsLabel}</p>
           </div>
           <div className="text-center">
             <span className="font-mono text-4xl md:text-6xl font-bold text-white">62</span>
-            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">сотрудника</p>
+            <p className="font-mono text-xs md:text-sm text-white/50 mt-2">{t.whyUs.teamLabel}</p>
           </div>
         </div>
       </div>

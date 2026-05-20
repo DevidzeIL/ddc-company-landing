@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useT } from "../i18n/context";
 
 export function ContactForm() {
+  const t = useT();
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -17,7 +19,7 @@ export function ContactForm() {
     setError("");
 
     if (!form.agreed) {
-      setError("Необходимо дать согласие на обработку персональных данных");
+      setError(t.contact.consentError);
       return;
     }
 
@@ -34,9 +36,8 @@ export function ContactForm() {
         }),
       });
 
-      if (!res.ok) throw new Error("Ошибка отправки");
+      if (!res.ok) throw new Error("Send error");
 
-      // Цель Яндекс.Метрики
       if (typeof window !== "undefined" && (window as any).ym) {
         (window as any).ym(108497851, "reachGoal", "form_submit");
       }
@@ -45,7 +46,7 @@ export function ContactForm() {
       setForm({ name: "", phone: "", email: "", message: "", agreed: false });
       setTimeout(() => setSubmitted(false), 3000);
     } catch {
-      setError("Не удалось отправить заявку. Попробуйте позже.");
+      setError(t.contact.sendError);
     } finally {
       setSending(false);
     }
@@ -58,16 +59,16 @@ export function ContactForm() {
     <section id="contact" className="py-20 px-6">
       <div className="max-w-[600px] mx-auto">
         <h2 className="font-mono text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-          ОСТАЛИСЬ ВОПРОСЫ?
+          {t.contact.heading}
         </h2>
         <p className="font-mono text-base text-white/60 mb-12">
-          Оставьте заявку, и мы свяжемся с вами, чтобы рассказать больше
+          {t.contact.subtitle}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label className="font-mono text-sm text-white/80 mb-2 block">
-              Имя <span className="text-[#FF4444]">*</span>
+              {t.contact.name} <span className="text-[#FF4444]">*</span>
             </label>
             <input
               type="text"
@@ -80,7 +81,7 @@ export function ContactForm() {
 
           <div>
             <label className="font-mono text-sm text-white/80 mb-2 block">
-              Телефон <span className="text-[#FF4444]">*</span>
+              {t.contact.phone} <span className="text-[#FF4444]">*</span>
             </label>
             <input
               type="tel"
@@ -93,7 +94,7 @@ export function ContactForm() {
 
           <div>
             <label className="font-mono text-sm text-white/80 mb-2 block">
-              Email
+              {t.contact.email}
             </label>
             <input
               type="text"
@@ -105,7 +106,7 @@ export function ContactForm() {
 
           <div>
             <label className="font-mono text-sm text-white/80 mb-2 block">
-              Опишите вашу задачу <span className="text-[#FF4444]">*</span>
+              {t.contact.task} <span className="text-[#FF4444]">*</span>
             </label>
             <textarea
               required
@@ -137,15 +138,15 @@ export function ContactForm() {
               className="sr-only"
             />
             <span className="font-mono text-xs text-white/60 leading-relaxed">
-              Установка галочки (отправка формы) означает, что я ознакомлен(а) с{" "}
+              {t.contact.consent1}{" "}
               <a href="/docs/privacy-policy.html" target="_blank" className="underline text-white/80 hover:text-white">
-                Политикой обработки персональных данных
+                {t.contact.consentPrivacy}
               </a>{" "}
-              и{" "}
+              {t.contact.consentAnd}{" "}
               <a href="/docs/user-agreement.html" target="_blank" className="underline text-white/80 hover:text-white">
-                Пользовательским соглашением
+                {t.contact.consentAgreement}
               </a>
-              , согласен(на) с их условиями и даю своё конкретное, информированное и сознательное согласие на обработку моих персональных данных в указанных целях.
+              {t.contact.consent2}
             </span>
           </label>
 
@@ -158,7 +159,7 @@ export function ContactForm() {
             disabled={sending}
             className="w-full bg-[#3BA6FF] hover:bg-[#2196F3] disabled:opacity-50 text-white font-mono text-base py-4 px-8 transition-colors"
           >
-            {sending ? "Отправка..." : submitted ? "Отправлено!" : "Отправить"}
+            {sending ? t.contact.sending : submitted ? t.contact.sent : t.contact.send}
           </button>
         </form>
       </div>
